@@ -6,19 +6,21 @@
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 16:54:37 by dachung           #+#    #+#             */
-/*   Updated: 2020/04/05 17:56:58 by dachung          ###   ########.fr       */
+/*   Updated: 2020/04/09 21:01:57 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t      ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	unsigned int i;
 	unsigned int count;
 
 	i = 0;
 	count = 0;
+	if (dst == NULL || src == NULL)
+		return (0);
 	while (src[count] != 0)
 		count++;
 	if (dstsize != 0)

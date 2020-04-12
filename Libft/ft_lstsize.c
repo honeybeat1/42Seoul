@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/05 17:09:10 by dachung           #+#    #+#             */
-/*   Updated: 2020/04/12 22:59:39 by dachung          ###   ########.fr       */
+/*   Created: 2020/04/10 16:29:49 by dachung           #+#    #+#             */
+/*   Updated: 2020/04/10 17:08:55 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int		ft_lstsize(t_list *lst)
 {
-	unsigned char *d;
-	unsigned char *s;
+	int	size;
 
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	if (!src && !dst)
-		return (NULL);
-	if (s < d)
+	size = 0;
+	while (lst)
 	{
-		while (len-- > 0)
-		{
-			d[len] = s[len];
-		}
+		lst = lst->next;
+		size++;
 	}
-	else
-		ft_memcpy(d, s, len);
-	return (d);
+	return (size);
 }

@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/05 17:09:10 by dachung           #+#    #+#             */
-/*   Updated: 2020/04/12 22:59:39 by dachung          ###   ########.fr       */
+/*   Created: 2020/04/10 18:38:59 by dachung           #+#    #+#             */
+/*   Updated: 2020/04/12 23:22:56 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned char *d;
-	unsigned char *s;
+	t_list	*new_list;
+	t_list	*node;
+	t_list	*temp;
 
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	if (!src && !dst)
+	if (!lst)
 		return (NULL);
-	if (s < d)
+	if (!(new_list = ft_lstnew(f(lst->content))))
+		return (NULL);
+	lst = lst->next;
+	while (lst)
 	{
-		while (len-- > 0)
+		if (!(node = ft_lstnew(f(lst->content))))
 		{
-			d[len] = s[len];
+			ft_lstclear(&new_list, del);
+			return (NULL);
 		}
+		temp = new_list;
+		while (temp->next)
+			temp = temp->next;
+		temp->next = node;
+		lst = lst->next;
 	}
-	else
-		ft_memcpy(d, s, len);
-	return (d);
+	return (new_list);
 }

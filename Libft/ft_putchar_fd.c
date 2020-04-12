@@ -6,13 +6,13 @@
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/22 23:35:25 by dachung           #+#    #+#             */
-/*   Updated: 2020/03/22 23:35:48 by dachung          ###   ########.fr       */
+/*   Updated: 2020/04/07 19:03:38 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-    write(fd, &c, 1);
+	write(fd, &c, 1);
 }

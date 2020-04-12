@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/05 17:09:10 by dachung           #+#    #+#             */
-/*   Updated: 2020/04/12 22:59:39 by dachung          ###   ########.fr       */
+/*   Created: 2020/04/10 18:09:08 by dachung           #+#    #+#             */
+/*   Updated: 2020/04/10 18:32:11 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	unsigned char *d;
-	unsigned char *s;
+/*
+** if조건에서 *lst->next 이라고 쓰면 *이 어디까지 참조해야할지 몰라서 에러. () 추가해주기.
+*/
 
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	if (!src && !dst)
-		return (NULL);
-	if (s < d)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list *temp;
+
+	while (*lst)
 	{
-		while (len-- > 0)
-		{
-			d[len] = s[len];
-		}
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = temp;
 	}
-	else
-		ft_memcpy(d, s, len);
-	return (d);
+	*lst = NULL;
 }

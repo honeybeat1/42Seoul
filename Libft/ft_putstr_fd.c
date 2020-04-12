@@ -6,17 +6,19 @@
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/22 23:36:09 by dachung           #+#    #+#             */
-/*   Updated: 2020/03/22 23:36:40 by dachung          ###   ########.fr       */
+/*   Updated: 2020/04/09 21:48:06 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_putstr_fd(char const *s, int fd)
+void	ft_putstr_fd(char const *s, int fd)
 {
-    int i;
+	int		i;
 
-    i = 0;
-    while (s[i] != 0)
-        write(fd, &s[i++], 1);
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i] != 0)
+		write(fd, &s[i++], 1);
 }

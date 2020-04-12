@@ -6,16 +6,16 @@
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 02:56:54 by dachung           #+#    #+#             */
-/*   Updated: 2020/03/06 03:31:26 by dachung          ###   ########.fr       */
+/*   Updated: 2020/04/07 20:15:19 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_toupper(int c)
+int		ft_toupper(int c)
 {
-    if (c >= 97 && c <= 122)
-        return (c - 32);
-    else
-        return (c);
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	else
+		return (c);
 }

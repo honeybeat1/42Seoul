@@ -6,7 +6,7 @@
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/22 22:10:35 by dachung           #+#    #+#             */
-/*   Updated: 2020/03/22 22:13:50 by dachung          ###   ########.fr       */
+/*   Updated: 2020/04/09 21:39:57 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int		get_len(long nb)
 {
-	int len;
+	int		len;
 
 	len = 0;
-	if (nb < 0)
+	if (nb <= 0)
 	{
 		nb = nb * -1;
 		len++;
@@ -32,7 +32,7 @@ int		get_len(long nb)
 
 char	*ft_itoa(int nb)
 {
-	char *str;
+	char	*str;
 	long	n;
 	int		i;
 
@@ -53,9 +53,8 @@ char	*ft_itoa(int nb)
 	}
 	while (n > 0)
 	{
-		str[i] = 48 + (n % 10);
+		str[i--] = 48 + (n % 10);
 		n = n / 10;
-		i--;
 	}
 	return (str);
 }
