@@ -6,11 +6,11 @@
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 20:30:42 by dachung           #+#    #+#             */
-/*   Updated: 2020/12/15 23:32:01 by dachung          ###   ########.fr       */
+/*   Updated: 2020/12/17 16:34:09 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#include "libft.h"
 
 int		ft_atoi(const char *str)
 {
@@ -26,5 +26,17 @@ int		ft_atoi(const char *str)
 	if (str[i] == '-' | str[i] == '+')
 		if (str[i++] == '-')
 			sign *= -1;
-
+	while (str[i] != 0)
+	{
+		if ('0' <= str[i] && str[i] <= '9')
+		{
+			r = r * 10 + (str[i] - '0');
+			i++;
+			if (!('0' <= str[i] && str[i] <= '9'))
+				return (sign * (int)r);
+		}
+		else
+			break ;
+	}
+	return (sign * (int)r);
 }
