@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/05 18:11:39 by dachung           #+#    #+#             */
-/*   Updated: 2020/12/17 19:30:38 by dachung          ###   ########.fr       */
+/*   Created: 2020/04/05 19:09:42 by dachung           #+#    #+#             */
+/*   Updated: 2020/12/17 19:29:31 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char *src;
+	unsigned char *s1_c;
+	unsigned char *s2_c;
 
-	src = (unsigned char*)s;
+	s1_c = (unsigned char*)s1;
+	s2_c = (unsigned char*)s2;
 	while (n-- > 0)
 	{
-		if (*src == (unsigned char)c)
-			return (src);
-		src++;
+		if (*s1_c != *s2_c)
+			return (*s1_c - *s2_c);
+		s1_c++;
+		s2_c++;
 	}
-	return (NULL);
+	return (0);
 }
