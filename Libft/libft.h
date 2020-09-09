@@ -6,7 +6,7 @@
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/09 20:52:46 by dachung           #+#    #+#             */
-/*   Updated: 2020/12/17 22:09:34 by dachung          ###   ########.fr       */
+/*   Updated: 2020/12/17 22:12:48 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
+int					ft_isprint(int c);
 int					ft_isascii(int c);
+int					ft_toupper(int c);
+int					ft_tolower(int c);
 
 #endif
