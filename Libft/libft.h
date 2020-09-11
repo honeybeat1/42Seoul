@@ -6,7 +6,7 @@
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/09 20:52:46 by dachung           #+#    #+#             */
-/*   Updated: 2020/12/17 22:12:48 by dachung          ###   ########.fr       */
+/*   Updated: 2020/12/17 23:47:03 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ int					ft_isprint(int c);
 int					ft_isascii(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+int					ft_strlen(const char *s);
+size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 #endif

@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/07 19:38:09 by dachung           #+#    #+#             */
-/*   Updated: 2020/12/18 00:11:38 by dachung          ###   ########.fr       */
+/*   Created: 2020/03/06 16:54:37 by dachung           #+#    #+#             */
+/*   Updated: 2020/12/18 00:10:42 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(const char *str)
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int	i;
+	unsigned int i;
+	unsigned int count;
 
 	i = 0;
-	while (str[i] != 0)
-		i++;
-	return (i);
+	count = 0;
+	if (dst == NULL || src == NULL)
+		return (0);
+	while (src[count] != 0)
+		count++;
+	if (dstsize != 0)
+	{
+		while (src[i] != 0 && i < (dstsize - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (count);
 }
