@@ -6,7 +6,7 @@
 /*   By: dachung <dachung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 00:28:05 by dachung           #+#    #+#             */
-/*   Updated: 2020/12/22 01:16:36 by dachung          ###   ########.fr       */
+/*   Updated: 2020/12/22 01:48:13 by dachung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_union(char* str1, char* str2)
 	}
 	while (str2[j] != 0)
 	{
-		if (check_double(str1, j, str2[j]) && check_double(str2, j, str2[j]))
+		if (check_double(str1, i, str2[j]) && check_double(str2, j, str2[j]))
 			write(1, &str2[j], 1);
 		j++;
 	}
